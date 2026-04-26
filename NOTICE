@@ -1,0 +1,37 @@
+GVCC: Zero-Shot Video Compression via Codebook-Driven Stochastic Rectified Flow
+Copyright 2026 The GVCC Authors (Ziyue Zeng et al., Waseda University)
+
+This product includes software developed by:
+
+  * The Alibaba Wan Team (Wan2.1)
+    https://github.com/Wan-Video/Wan2.1
+    Licensed under the Apache License, Version 2.0
+    The `wan/` subpackage is sourced and adapted from the upstream Wan2.1
+    repository. Original copyright notices in those files are preserved.
+
+  * HuggingFace Diffusers
+    https://github.com/huggingface/diffusers
+    Licensed under the Apache License, Version 2.0
+    Selected schedulers in `wan/utils/fm_solvers*.py` are adapted from
+    the upstream diffusers source.
+
+  * OpenAI CLIP / OpenCLIP
+    https://github.com/openai/CLIP
+    https://github.com/mlfoundations/open_clip
+    Licensed under the MIT License (CLIP) and MIT License (OpenCLIP).
+    Adapted in `wan/modules/clip.py`.
+
+  * qwen-vl-utils
+    https://github.com/kq-chen/qwen-vl-utils
+    Adapted in `wan/utils/qwen_vl_utils.py`.
+
+This project also depends on but does not redistribute:
+
+  * CompressAI (https://github.com/InterDigitalInc/CompressAI), BSD 3-Clause
+  * PyTorch, torchvision (BSD)
+  * pytorch_msssim, lpips (MIT/BSD)
+
+Original contributions in this repository (notably `sde_rf_wan/`,
+`exp_t2v/`, `exp_i2v/`, `exp_flf2v/`, `exp_param_sweep/`,
+`exp_appendix_rd_sweep/`, `uvg_data.py`) are released under the
+Apache License, Version 2.0. See the LICENSE file for full terms.
