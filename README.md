@@ -7,13 +7,13 @@ Algorithmic details of the encode/decode pipeline are in [`PIPELINE.md`](PIPELIN
 
 ## Install
 
-Tested with Python 3.10, CUDA 13.0, PyTorch 2.10, and a single 80 GB GPU.
+Tested with Python 3.10 and CUDA 13.0; the dependency lower bounds match upstream Wan2.1, so any environment that runs Wan2.1 should run GVCC.
 
 ```bash
-# 1. PyTorch (CUDA 13.0 wheel — adjust for your CUDA version)
+# 1. PyTorch (CUDA 13.0 wheel — adjust the index URL for your CUDA version)
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 
-# 2. Remaining dependencies (versions pinned to the ones used in the paper)
+# 2. Remaining dependencies
 pip install -r requirements.txt
 ```
 
@@ -39,6 +39,8 @@ bash exp_flf2v/download_flf2v_14b.sh
 
 Each path may be a real directory or a symlink to a shared cache.
 
+**Smaller backbones.** GVCC is backbone-agnostic — any Wan2.1 variant works as a drop-in replacement. For low-VRAM experimentation with the T2V configuration, use `Wan-AI/Wan2.1-T2V-1.3B-Diffusers` (place it at `exp_t2v/Wan2.1-T2V-1.3B-Diffusers/` and pass `--wan_ckpt exp_t2v/Wan2.1-T2V-1.3B-Diffusers` to the run script). I2V additionally has a 480P variant at `Wan-AI/Wan2.1-I2V-14B-480P`.
+
 ## Data
 
 Download the seven [UVG-1080p](https://ultravideo.fi/) YUV sequences (Beauty, Bosphorus, HoneyBee, Jockey, ReadySetGo, ShakeNDry, YachtRide) and place them anywhere under `data/uvg/`. The loader (`uvg_data.py`) recursively scans for `*.yuv` and matches sequences by filename.
@@ -59,12 +61,13 @@ bash exp_flf2v/run_flf2v.sh
 bash exp_flf2v/run_flf2v_1080p.sh
 ```
 
-VRAM: 14B models need ~48 GB at 720p and ~70 GB at 1080p.
+**VRAM** scales with the chosen backbone. With the 14B Wan2.1 used in the paper, expect ~48 GB at 720p and ~70 GB at 1080p (DiT is offloaded to CPU during VAE encode/decode). Swapping in the 1.3B T2V variant brings the requirement down to roughly a single consumer GPU. The codebook/SDE pipeline itself adds negligible memory on top of the underlying generator.
+
 Pass `--help` to any of the `run_*_experiment.py` files for the full parameter list (`M`, `K`, `steps`, `g_scale`, `ddim_tail`, etc.).
 
 ## Output layout
 
-```
+```text
 exp_{method}/results_{resolution}/
   summary.json
   {sequence}/

@@ -1,31 +1,41 @@
-# Core — install PyTorch with CUDA from https://pytorch.org/get-started/
-# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
-torch>=2.10.0
-torchvision>=0.25.0
-numpy==1.26.4
+# Lower bounds below match upstream Wan2.1's own requirements — if Wan2.1
+# runs in your environment, GVCC's pipeline should run too. The exact
+# versions used to produce the paper's results were:
+#   torch 2.10, torchvision 0.25, numpy 1.26.4, diffusers 0.37,
+#   transformers 5.3, tokenizers 0.22, accelerate 1.13, einops 0.8,
+#   compressai 1.2.8, pytorch-msssim 1.0, lpips 0.1.4
+# (CUDA 13.0). Newer versions that remain compatible with Wan2.1 also work.
 
-# Wan2.1 model
-diffusers==0.37.0
-transformers==5.3.0
-tokenizers==0.22.2
-accelerate==1.13.0
-einops==0.8.0
-easydict==1.13
-ftfy==6.3.1
-regex==2026.2.19
+# Core
+# Install PyTorch with the CUDA wheel matching your driver, e.g.:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+torch>=2.4.0
+torchvision>=0.19.0
+numpy>=1.23.5,<2
 
-# Image / Video I/O
-Pillow==11.0.0
-opencv-python==4.10.0.84
-imageio==2.34.2
-imageio-ffmpeg==0.5.1
+# Wan2.1 model stack
+diffusers>=0.31.0
+transformers>=4.49.0
+tokenizers>=0.20.3
+accelerate>=1.1.1
+einops>=0.7.0
+easydict>=1.10
+ftfy>=6.0
+regex>=2023.10.3
+
+# Image / video I/O
+Pillow>=10.0.0
+opencv-python>=4.9.0
+imageio>=2.30.0
+imageio-ffmpeg>=0.4.9
 
 # Compression
-compressai==1.2.8
+compressai>=1.2.0
 
 # Metrics
-pytorch-msssim==1.0.0
-lpips==0.1.4
+pytorch-msssim>=1.0.0
+lpips>=0.1.4
 
 # Utilities
-tqdm==4.67.3
+tqdm>=4.65.0
+huggingface_hub>=0.23.0
