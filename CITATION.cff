@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software or refer to the GVCC method, please cite the paper below."
+title: "GVCC: Zero-Shot Video Compression via Codebook-Driven Stochastic Rectified Flow"
+type: software
+authors:
+  - family-names: Zeng
+    given-names: Ziyue
+    affiliation: Waseda University
+  - family-names: Su
+    given-names: Xun
+    affiliation: Waseda University
+  - family-names: Liu
+    given-names: Haoyuan
+    affiliation: Waseda University
+  - family-names: Lu
+    given-names: Bingyu
+    affiliation: Waseda University
+  - family-names: Tatsumi
+    given-names: Yui
+    affiliation: Waseda University
+  - family-names: Watanabe
+    given-names: Hiroshi
+    affiliation: Waseda University
+repository-code: "https://github.com/CCdydy/GVCC"
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "GVCC: Zero-Shot Video Compression via Codebook-Driven Stochastic Rectified Flow"
+  authors:
+    - family-names: Zeng
+      given-names: Ziyue
+    - family-names: Su
+      given-names: Xun
+    - family-names: Liu
+      given-names: Haoyuan
+    - family-names: Lu
+      given-names: Bingyu
+    - family-names: Tatsumi
+      given-names: Yui
+    - family-names: Watanabe
+      given-names: Hiroshi
+  year: 2026
+  journal: "arXiv preprint"
+  identifiers:
+    - type: other
+      value: "arXiv:2603.26571"
+      description: "arXiv preprint identifier"
+  url: "https://arxiv.org/abs/2603.26571"

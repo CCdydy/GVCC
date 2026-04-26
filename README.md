@@ -65,6 +65,16 @@ bash exp_flf2v/run_flf2v_1080p.sh
 
 Pass `--help` to any of the `run_*_experiment.py` files for the full parameter list (`M`, `K`, `steps`, `g_scale`, `ddim_tail`, etc.).
 
+### Reproducing paper figures
+
+Rate-distortion and ablation sweeps used in the paper:
+
+```bash
+bash exp_param_sweep/run_sweep.sh         # M / K / steps / g_scale / num_frames sweep
+bash exp_flf2v/run_rd_sweep.sh            # FLF2V rate-distortion curve (varying M)
+bash exp_appendix_rd_sweep/run.sh         # Appendix RD sweep (T2V-1.3B backbone)
+```
+
 ## Output layout
 
 ```text

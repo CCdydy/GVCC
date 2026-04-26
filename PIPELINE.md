@@ -1,6 +1,6 @@
-# Pipeline Design Document
+# GVCC — Pipeline Design Document
 
-This document describes the engineering design of the Turbo-DDCM video compression pipeline for each of the three experiment tracks. It is intended as a companion to the paper, focusing on implementation rationale and system-level design decisions.
+This document describes the engineering design of the **GVCC** video compression pipeline (which adapts the Turbo-DDCM multi-atom codebook construction to the Wan2.1 rectified-flow generator) for each of the three experiment tracks. It is intended as a companion to the paper [arXiv:2603.26571](https://arxiv.org/abs/2603.26571), focusing on implementation rationale and system-level design decisions.
 
 ## 1. Shared Core: RF-to-SDE Conversion and Multi-Atom Codebook
 
