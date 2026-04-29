@@ -551,7 +551,7 @@ def main():
             # Unique frames contributed by this GOP
             gop_unique_frames = FPG if g == 0 else FPG - 1
 
-            total_pixels = gop_unique_frames * HEIGHT * WIDTH * 3
+            total_pixels = gop_unique_frames * HEIGHT * WIDTH
             bpp = gop_total_bits / total_pixels if total_pixels > 0 else 0
             duration_s = gop_unique_frames / 16.0
             bitrate_kbps = gop_total_bits / duration_s / 1000.0 if duration_s > 0 else 0
@@ -603,7 +603,7 @@ def main():
         avg_lpips = np.mean([r["LPIPS"] for r in gop_results])
         total_seq_bytes = sum(r["gop_total_bytes"] for r in gop_results)
         total_seq_unique = sum(r["gop_unique_frames"] for r in gop_results)
-        total_seq_pixels = total_seq_unique * HEIGHT * WIDTH * 3
+        total_seq_pixels = total_seq_unique * HEIGHT * WIDTH
         seq_bpp = (total_seq_bytes * 8) / total_seq_pixels if total_seq_pixels > 0 else 0
         seq_duration = total_seq_unique / 16.0
         seq_kbps = (total_seq_bytes * 8) / seq_duration / 1000.0 if seq_duration > 0 else 0

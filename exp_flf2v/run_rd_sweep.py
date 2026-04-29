@@ -278,7 +278,7 @@ def main():
     # Preview BPP estimates
     T_sde = args.steps - args.ddim_tail  # 17
     F_lat = (FPG - 1) // 4 + 1  # 9
-    total_pixels = FPG * HEIGHT * WIDTH * 3
+    total_pixels = FPG * HEIGHT * WIDTH
 
     print("=" * 70)
     print(f"FLF2V R-D Sweep (proportional scaling) — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
@@ -403,7 +403,7 @@ def main():
                 boundary_bytes = gop_first_bytes + last_bytes
                 gop_total_bytes = codebook_bytes + boundary_bytes
                 gop_total_bits = gop_total_bytes * 8
-                gop_pixels = n * HEIGHT * WIDTH * 3
+                gop_pixels = n * HEIGHT * WIDTH
                 bpp = gop_total_bits / gop_pixels
                 duration_s = n / 16.0
                 kbps = gop_total_bits / duration_s / 1000.0

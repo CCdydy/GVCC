@@ -142,7 +142,7 @@ def run_single(model, gt_frames, height, width, num_frames, M, K, steps,
     lpips_val = compute_lpips(t_gt, t_rec)
 
     codebook_bits = pipe._total_codebook_bits
-    total_pixels = n * height * width * 3
+    total_pixels = n * height * width
     bpp = codebook_bits / total_pixels
 
     del pipe, t_gt, t_rec, step_data, frames_recon

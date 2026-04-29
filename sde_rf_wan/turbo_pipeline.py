@@ -94,7 +94,7 @@ class TurboDDCMWanPipeline:
         else:
             total_bits = self.num_sde_steps * self.num_latent_frames * bits_normal
         self._total_codebook_bits = total_bits
-        total_pixels = num_frames * height * width * 3
+        total_pixels = num_frames * height * width
         bpp = total_bits / total_pixels
         duration_s = num_frames / 16.0
         bitrate_kbps = total_bits / duration_s / 1000.0

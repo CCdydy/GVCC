@@ -156,7 +156,7 @@ def main():
 
     T_sde = args.steps - args.ddim_tail
     F_lat = (FPG - 1) // 4 + 1
-    total_pixels = FPG * HEIGHT * WIDTH * 3
+    total_pixels = FPG * HEIGHT * WIDTH
 
     print("=" * 70)
     print(f"T2V 1.3B R-D Sweep — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
@@ -240,7 +240,7 @@ def main():
                 lpips_val = compute_lpips(t_gt, t_rec)
 
                 codebook_bits = pipe._total_codebook_bits
-                bpp = codebook_bits / (n * HEIGHT * WIDTH * 3)
+                bpp = codebook_bits / (n * HEIGHT * WIDTH)
                 kbps = codebook_bits / (n / 16.0) / 1000.0
 
                 gop_psnrs.append(psnr)

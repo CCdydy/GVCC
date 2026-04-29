@@ -356,7 +356,7 @@ def main():
             # Bitrate: codebook only (no reference frame)
             codebook_bits = pipe._total_codebook_bits
             codebook_bytes = codebook_bits // 8
-            total_pixels = len(gop_frames) * HEIGHT * WIDTH * 3
+            total_pixels = len(gop_frames) * HEIGHT * WIDTH
             bpp = codebook_bits / total_pixels
             duration_s = len(gop_frames) / 16.0
             bitrate_kbps = codebook_bits / duration_s / 1000.0
@@ -408,7 +408,7 @@ def main():
 
             # Total bitrate for stitched video
             total_cb_bits = sum(r["codebook_bytes"] for r in gop_results) * 8
-            total_pixels_full = len(all_recon_frames) * HEIGHT * WIDTH * 3
+            total_pixels_full = len(all_recon_frames) * HEIGHT * WIDTH
             full_bpp = total_cb_bits / total_pixels_full
             full_dur = len(all_recon_frames) / 16.0
             full_kbps = total_cb_bits / full_dur / 1000.0

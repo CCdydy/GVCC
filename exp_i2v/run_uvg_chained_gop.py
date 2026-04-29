@@ -403,7 +403,7 @@ def main():
             codebook_bytes = codebook_bits // 8
             gop_total_bytes = codebook_bytes + ref_bytes + tail_res_bytes
             gop_total_bits = gop_total_bytes * 8
-            total_pixels = len(gop_frames) * HEIGHT * WIDTH * 3
+            total_pixels = len(gop_frames) * HEIGHT * WIDTH
             bpp = gop_total_bits / total_pixels
             duration_s = len(gop_frames) / 16.0
             bitrate_kbps = gop_total_bits / duration_s / 1000.0
